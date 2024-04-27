@@ -5,14 +5,12 @@ import {
   Routes,
   Route,
 } from 'react-router-dom'
-import { LogSnagProvider } from '@logsnag/react';
 
 import './style.css'
 import Home from './views/home'
 import NotFound from './views/not-found'
 
 const App = () => {
-  console.log(process.env.REACT_APP_NODE_ENV !== "development" ? process.env.REACT_APP_LOGSNAG_API_KEY : null)
   return (
     <Router>
       <Routes>
@@ -28,11 +26,6 @@ ReactDOM.createRoot(
   document.getElementById("app"),
 ).render(
   <React.StrictMode>
-    <LogSnagProvider
-      token={process.env.REACT_APP_NODE_ENV !== "development" ? process.env.REACT_APP_LOGSNAG_API_KEY : null}
-      project="bytesize"
-    >
-      <App />
-    </LogSnagProvider>
+    <App />
   </React.StrictMode>
 );

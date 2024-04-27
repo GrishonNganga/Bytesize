@@ -1,41 +1,11 @@
-import React, { useState } from 'react'
-
-import { useLogSnag } from '@logsnag/react';
+import React from 'react'
 
 import FeatureCard from '../components/feature-card'
 import Question1 from '../components/question1'
 import './home.css'
 import { ReactComponent as Logo } from '../images/logo.svg'
 
-import { v4 as uuidv4 } from 'uuid';
-
 const Home = (props) => {
-  const { track } = useLogSnag();
-  const [anonymousUser, setAnonymousUser] = React.useState()
-
-  React.useEffect(() => {
-    let ignore = false;
-    const userId = localStorage.getItem('userId')
-    if (!userId) {
-      const uuid = uuidv4();
-      localStorage.setItem('userId', uuid)
-      track({
-        channel: "landing",
-        event: "Viewed landing page",
-        user_id: `user-${uuid}`,
-      });
-      setAnonymousUser(`user-${uuid}`)
-    } else {
-      setAnonymousUser(`user-${userId}`)
-      track({
-        channel: "landing",
-        event: "Viewed landing page",
-        user_id: `user-${userId}`,
-      });
-    }
-    return () => { ignore = true }
-  }, [])
-
   return (
     <div className="home-container">
       <div className="home-header">
@@ -47,8 +17,8 @@ const Home = (props) => {
           <div data-thq="thq-navbar-nav" className="home-desktop-menu">
             <nav className="home-links"></nav>
             <div className="home-buttons">
-              <button className="home-login buttonFlat">Login</button>
-              <button className="buttonFilled">Register</button>
+              <button className="home-login buttonFlat" plausible-event-name='Login'>Login</button>
+              <button className="buttonFilled" plausible-event-name='Register'>Register</button>
             </div>
           </div>
           <div data-thq="thq-burger-menu" className="home-burger-menu">
@@ -81,14 +51,10 @@ const Home = (props) => {
               </nav>
               <div className="home-buttons1">
                 <button className="buttonFlat"
-                  data-event="Clicked login"
-                  data-channel="click-login"
-                  data-user-id={anonymousUser}
+                  plausible-event-name='Login'
                 >Login</button>
                 <button className="buttonFilled"
-                  data-event="Clicked register"
-                  data-channel="click-register"
-                  data-user-id={anonymousUser}
+                  plausible-event-name='Register'
                 >Register</button>
               </div>
             </div>
@@ -187,15 +153,10 @@ const Home = (props) => {
             </span>
             <div className="home-btn-group">
               <button className="buttonFilled"
-                data-event="Clicked register"
-                data-channel="click-register"
-                onClick={() => { console.log("Register fired") }}
+                plausible-event-name='Register'
               >Get Started Now</button>
               <button className="buttonFlat"
-                data-event="Clicked Learn more"
-                data-channel="click-learnmore"
-                data-tag-location="hero"
-                data-user-id={anonymousUser}
+                plausible-event-name='LearnMore'
               >Learn More →</button>
             </div>
           </div>
@@ -360,10 +321,7 @@ const Home = (props) => {
                 </div>
               </div>
               <button className="home-button buttonOutline"
-                data-event="Clicked Pricing"
-                data-channel="click-pricing"
-                data-tag-plan="basic"
-                data-user-id={anonymousUser}
+                plausible-event-name='PricingBasic'
               >
                 Try the Basic plan
               </button>
@@ -412,10 +370,7 @@ const Home = (props) => {
                 </div>
               </div>
               <button className="home-button1 buttonFilledSecondary"
-                data-event="Clicked Pricing"
-                data-channel="click-pricing"
-                data-tag-plan="pro"
-                data-user-id={anonymousUser}
+                plausible-event-name='PricingPro'
               >
                 Try the PRO plan
               </button>
@@ -498,10 +453,7 @@ const Home = (props) => {
             </span>
           </span>
           <button className="buttonFilled"
-            data-event="Clicked Learn More"
-            data-channel="click-learnmore"
-            data-tag-location="footer"
-            data-user-id={anonymousUser}
+            plausible-event-name='LearnMore'
           >Learn More</button>
         </div>
       </div>

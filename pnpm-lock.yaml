@@ -8,9 +8,6 @@ dependencies:
   '@craco/craco':
     specifier: ^7.0.0-alpha.0
     version: 7.1.0(@types/node@20.12.7)(postcss@8.4.38)(react-scripts@5.0.1)(typescript@5.4.5)
-  '@logsnag/react':
-    specifier: ^1.0.2
-    version: 1.0.2(react-dom@18.2.0)(react@18.2.0)
   prop-types:
     specifier: 15.7.2
     version: 15.7.2
@@ -1893,16 +1890,6 @@ packages:
 
   /@leichtgewicht/ip-codec@2.0.5:
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
-
-  /@logsnag/react@1.0.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Pp1eYbkfF/WHMuIt3Nui4uaiQ1EMzZuqI1DFc8VgvdWesA/7+4TZJlxV+cjPGU04IGSQrGpInR7dY3DzGHuisA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
 
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
     resolution: {integrity: sha512-54/JRvkLIzzDWshCWfuhadfrfZVPiElY8Fcgmg1HroEly/EDSszzhBAsarCux+D/kOslTRquNzuyGSmUSTTHGg==}
